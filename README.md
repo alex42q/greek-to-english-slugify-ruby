@@ -30,12 +30,16 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 In order to use it follow the steps in your model.rb
 
+```
 require "./lib/greek_to_english"
+
 include GreekToEnlgish
 
 before_save :slugify
 
-  def slugify
-    self.slug = GreekToEnlgish::sluging(self.name.downcase).parameterize
-  end
+def slugify
+  self.slug = GreekToEnlgish::sluging(self.name.downcase).parameterize
+end
+```
+
 
