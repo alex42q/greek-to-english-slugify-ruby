@@ -27,3 +27,15 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/greek_to_english_slugify.
+
+In order to use it follow the steps in your model.rb
+
+require "./lib/greek_to_english"
+include GreekToEnlgish
+
+before_save :slugify
+
+  def slugify
+    self.slug = GreekToEnlgish::sluging(self.name.downcase).parameterize
+  end
+
